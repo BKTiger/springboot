@@ -1,0 +1,91 @@
+body {
+  position: relative;
+}
+
+/*导航条-start*/
+.brandImg{
+	height: 40px;
+	
+}
+.navbar{
+	margin: 0px 0px 0px 0px;
+	font-size: 16px;
+}
+.navbar-brand>img {
+    display: block;
+    margin-top: -10px;
+    margin-left: 10px;
+}
+
+/*导航条-end*/
+/*大幕-start*/
+.screen{
+	margin-top: 50px;
+	height: 500px;
+	background-image: url(../img/screenBackgroud.jpg);
+	background-repeat:no-repeat; 
+	background-size:100% 100%;
+}
+.title{
+	color:white !important;
+}
+/*大幕-end*/
+
+
+/*标签-start*/
+#label{
+	margin:20px 0px 20px 0px ;
+}
+#intelligentBuilding_li{
+	margin-left: 25%;
+}
+#AI_li{
+	margin-left: 10%;
+}
+.label_tab{
+	height: 300px; 
+	background-color:#2c2c2c ;
+}
+.tabpanel_div{
+	margin-top:-270px; 
+	margin-right:10%;
+	margin-left:50px;
+	color: white;
+}
+.tabpanel_div_p{
+	margin-top: 130px;
+}
+.label_img{
+	height: 200px;
+	width: 200px;
+}
+ #label .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+	 background-color: #2C2C2C;
+}
+
+#intelligentBuilding_h{
+	color: white;
+}
+#AI_h{
+	color: #2C2C2C;
+}
+#intelligentBuilding img{
+	width: 280px;
+	height: 280px;
+}
+#AI img{
+	margin-top: 20px;
+	width: 260px;
+	height: 260px;	
+}
+/*标签-end*/
+/*底边栏-start*/
+.row_div{
+	width: 250px;
+}
+.row_font{
+	font-size: larger;
+	font-family: '微软雅黑';
+}
+/*底边栏-end*/
+

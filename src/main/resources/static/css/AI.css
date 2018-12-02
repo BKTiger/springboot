@@ -1,0 +1,47 @@
+body {
+  position: relative;
+}
+
+/*导航条-start*/
+.brandImg{
+	height: 40px;
+	
+}
+.navbar{
+	margin: 0px 0px 0px 0px;
+	font-size: 16px;
+}
+.navbar-brand>img {
+    display: block;
+    margin-top: -10px;
+    margin-left: 10px;
+}
+
+/*导航条-end*/
+/*大幕-start*/
+.screen{
+	margin-top: 50px;
+	height: 250px;
+	background-color:#2C2C2C;
+	background-repeat:no-repeat; 
+	background-size:100% 100%;
+}
+.title{
+	color:white !important;
+	margin-left: 100px;
+}
+#container_img{
+	margin-top: -10px;
+	width: 200px;
+	width: 200px
+}
+/*大幕-end*/
+/*底边栏-start*/
+.row_div{
+	width: 250px;
+}
+.row_font{
+	font-size: larger;
+	font-family: '微软雅黑';
+}
+/*底边栏-end*/
