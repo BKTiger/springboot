@@ -1,6 +1,6 @@
-package com.zhangtai.demo.common.returnobj.impl;
+package com.zhangtai.demo.common.result.impl;
 
-import com.zhangtai.demo.common.returnobj.ResultCode;
+import com.zhangtai.demo.common.result.ResultCode;
 
 /**
  * @author zhangtai

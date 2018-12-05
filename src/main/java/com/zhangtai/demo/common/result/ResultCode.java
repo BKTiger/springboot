@@ -1,4 +1,4 @@
-package com.zhangtai.demo.common.returnobj;
+package com.zhangtai.demo.common.result;
 /**
  * @author zhangtai
  * @date 2018/12/5 20:59

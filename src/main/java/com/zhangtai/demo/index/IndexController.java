@@ -1,12 +1,9 @@
 package com.zhangtai.demo.index;
 
-import com.zhangtai.demo.common.exception.CommonException;
 import com.zhangtai.demo.common.exception.ExceptionCast;
-import com.zhangtai.demo.common.returnobj.impl.CommonResultCode;
-import org.springframework.stereotype.Controller;
+import com.zhangtai.demo.common.result.impl.CommonResultCode;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
