@@ -15,7 +15,7 @@
 		</dependency>
 ```
 3. 工作原理
-
+![rabbitMQ原理](rabbitMQ原理.png)
 #### rabbitMQ基础案例
 ```
 生产者:
