@@ -5,14 +5,14 @@
 2. 导入jar包
 ```
 <dependency>
-			<groupId>com.rabbitmq</groupId>
-			<artifactId>amqp-client</artifactId>
-			<version>4.0.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-logging</artifactId>
-		</dependency>
+	<groupId>com.rabbitmq</groupId>
+	<artifactId>amqp-client</artifactId>
+	<version>4.0.3</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-logging</artifactId>
+</dependency>
 ```
 3. 工作原理
 ![rabbitMQ原理](rabbitMQ原理.png)
