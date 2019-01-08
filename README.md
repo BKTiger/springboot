@@ -24,13 +24,23 @@
 #### 工作模式
 1. Work Queues 工作队列
 
+![rabbitMQ原理](picture/work queues.png)
+
 2. Publish/Subscribe 发布订阅
+
+![rabbitMQ原理](picture/Publish--Subscribe.png)
 
 3. Routing 路由
 
+![rabbitMQ原理](picture/Routing.png)
+
 4. Topics 通配符
+
+![rabbitMQ原理](picture/Topics.png)
 
 5. Header Header转发器
 
 6. RPC 远程调用
+
+![rabbitMQ原理](picture/RPC.png)
 
