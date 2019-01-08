@@ -54,6 +54,26 @@
 
 3. 消费者以默认轮询的方式接收数据；
 
+#### 发布订阅模式(Publish/Subscribe)
+```
+生产者:com.rabbitmq.publishsubscribe.Producter
+消费者:com.rabbitmq.publishsubscribe.ConsumerEmall
+消费者:com.rabbitmq.publishsubscribe.ConsumerSms
+```
 
+- 发布订阅的每一个分支都相当于一个工作队列模式
 
+#### 路由模式(Routing) 
 
+1. 说明:
+
+- 一个交换机绑定多个队列,每个队列设置routingkey,并且一个队列可以设置多哥routingkey
+
+- 每个消费者监听自己的队列
+
+- 生产者将消息发给交换机,发送消息时需要制定routingkey的值,交换机来判断该routingkey的值和哪个队列的routingkey相等,如果相等则将消息发送到该队列
+
+2. 测试实现:
+```
+
+```
