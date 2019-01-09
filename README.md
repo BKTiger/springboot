@@ -115,6 +115,27 @@
 	
 	3. 服务端将RPC方法的记过发送到RPC响应队列
 	
+#### Spring Boot整合
+1. 加入依赖
+```
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-amqp</artifactId>
+</dependency>
+```
+
+2. 加入rabbitMQ的配置
+
+```
+spring.rabbitmq.host=192.168.117.188
+spring.rabbitmq.port=5672
+spring.rabbitmq.username=guest
+spring.rabbitmq.password=guest
+spring.rabbitmq.virtual-host=/
+```
+3. 测试
+
+	1. producer
 	
 	
 	
