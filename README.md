@@ -67,7 +67,7 @@
 
 1. 说明:
 
-- 一个交换机绑定多个队列,每个队列设置routingkey,并且一个队列可以设置多哥routingkey
+- 一个交换机绑定多个队列,每个队列设置routingkey,并且一个队列可以设置多个routingkey
 
 - 每个消费者监听自己的队列
 
@@ -75,5 +75,41 @@
 
 2. 测试实现:
 ```
-
+生产者:com.rabbitmq.routing.Producter
+消费者:com.rabbitmq.routing.ConsumerEmall
+消费者:com.rabbitmq.routing.ConsumerSms
 ```
+#### 通配符模式(Topics) 
+
+1. 说明
+	
+	- 一个交换机可以绑定多个队列,每个队列可以额设置一个或多个带通配符的routingkey
+	
+	- 生产者将消息发送给交换机,交换机根据routingkey的值来匹配队列,匹配时采用通配符方式,匹配成功的将消息转发到指定队列
+	
+	- routing模式是匹配相等,topics模式是统配符匹配
+	
+		- 符号#:匹配一个或多个词,比如inform.#可以匹配inform.emall,inform.sms.emall
+		
+		- 符号*:只能匹配一个词,比如inform.* 可以匹配inform.emall,不能匹配inform.sms.emall
+	
+2. 测试
+```
+生产者:com.rabbitmq.topics.Producter
+消费者:com.rabbitmq.topics.ConsumerEmall
+消费者:com.rabbitmq.topics.ConsumerSms
+```
+#### Header模式
+
+1. 说明:
+	- header模式与routing不同的地方在于,header模式取消了routingkey,使用header中的key/value(键值对)匹配队列
+	![header模式](picture/header模式.png)
+	
+	
+	
+	
+	
+	
+	
+
+
