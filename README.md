@@ -138,18 +138,27 @@ spring.rabbitmq.virtual-host=/
 	1. producer
 	
 		- 加入rabbitmq的配置文件
+		
 	```
 	配置队列,交换机
 	com.zhangtai.demo.rabbitmq.config.RabbitmqConfig
 	```
 		- 加入消息发送的测试
+		
 	```
 	使用RabbitTemplate发送消息
 	com.rabbitmq.topicsonspringboot.Producer
 	```
 	2. consumer
-		
 	
+		- 加入rabbitmq的配置文件
+		
+	```
+	配置队列,交换机
+	com.zhangtai.demo.rabbitmq.config.RabbitmqConfig
+	```
+		- 测试
+	![消费方](picture/springboot整合rabbitmq后的消费方.png)
 	
 
 
