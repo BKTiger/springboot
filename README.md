@@ -105,7 +105,15 @@
 	- header模式与routing不同的地方在于,header模式取消了routingkey,使用header中的key/value(键值对)匹配队列
 	![header模式](picture/header模式.png)
 	
+#### RPC模式
+
+1. 说明:RPC及客户端远程调用服务端的方法,使用MQ可以实现RPC的异步调用,基于Direct交换机实现
+
+	1. 客户端即使生产者又是消费者,向RPC请求队列发送RPC调用消息,同时监听RPC响应队列
 	
+	2. 服务端监听RPC请求队列的消息,收到消息后执行服务端的方法,得到方法返回的记过
+	
+	3. 服务端将RPC方法的记过发送到RPC响应队列
 	
 	
 	
