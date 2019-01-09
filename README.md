@@ -137,7 +137,11 @@ spring.rabbitmq.virtual-host=/
 
 	1. producer
 	
-	
+		加入rabbitmq的配置文件
+		```
+		配置队列,交换机
+		com.zhangtai.demo.rabbitmq.config.RabbitmqConfig
+		```
 	
 	
 
