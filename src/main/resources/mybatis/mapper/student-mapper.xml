@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhangtai.demo.index.dao.IndexMapper">
+
+<resultMap id="BaseResultMap" type="com.zhangtai.demo.index.domain.Student">
+    <id column="id" property="id" jdbcType="VARCHAR"></id>
+    <result column="s_name" property="name" jdbcType="VARCHAR"></result>
+    <result column="age" property="age" jdbcType="INTEGER"></result>
+    <result column="like" property="like" jdbcType="VARCHAR"></result>
+</resultMap>
+<sql id="base_column_reslut">
+    id,`s_name`,age,`like`
+</sql>
+   <select id="getById" resultMap="BaseResultMap" parameterType="String">
+       SELECT
+       <include refid="base_column_reslut"></include>
+       FROM student1 WHERE id = #{id}
+   </select>
+
+    <select id="page" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="base_column_reslut"></include>
+        FROM student1
+    </select>
+</mapper>
