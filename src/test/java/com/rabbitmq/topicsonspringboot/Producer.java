@@ -20,16 +20,17 @@ public class Producer {
 
     @Autowired
     RabbitTemplate rabbitTemplate;
+
     @Test
     public void testSendEmall(){
 
         String message = "send email message to user";
-        /* *
+        /**
          * 参数
          * 1. 交换机名称
          * 2. routingkey名称
          * 3. 消息
          */
-        rabbitTemplate.convertAndSend(RabbitmqConfig.EXCHAGE_TOPICS_INFORM,"inform.emall",message);
+        rabbitTemplate.convertAndSend(RabbitmqConfig.QUEUE_INFORM_EMALL,message);
     }
 }
