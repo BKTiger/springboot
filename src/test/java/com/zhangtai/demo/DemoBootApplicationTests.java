@@ -279,6 +279,72 @@ public class DemoBootApplicationTests {
 	}
 
 	/**
+	 * 功能描述: 分页查询
+	 *
+	 * @param: []
+	 * @return: void
+	 * @auther: zhangtai
+	 * @date: 2020/1/7 15:37
+	 */
+	@Test
+	public void searchPage(){
+		SearchRequest goods = new SearchRequest("goods");
+
+		SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+		searchSourceBuilder.size(2).from(0);
+
+		SearchRequest source = goods.source(searchSourceBuilder);
+		try {
+			SearchResponse search = restHighLevelClient.search(source, RequestOptions.DEFAULT);
+			long total = search.getHits().getTotalHits().value;
+			System.out.println(total);
+			SearchHit[] hits = search.getHits().getHits();
+			for (SearchHit hit : hits) {
+				String sourceAsString = hit.getSourceAsString();
+				System.out.println(sourceAsString);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 功能描述: 排序
+	 *
+	 * @param: []
+	 * @return: void
+	 * @auther: zhangtai
+	 * @date: 2020/1/7 15:37
+	 */
+	@Test
+	public void searchSort(){
+		SearchRequest goods = new SearchRequest("goods");
+
+		//searchSourceBuilder.sort(SortBuilders.fieldSort("skuId").order(SortOrder.DESC));
+		//searchSourceBuilder.sort(SortBuilders.fieldSort("skuId").order(SortOrder.ASC));
+		//searchSourceBuilder.sort("skuId",SortOrder.DESC);
+		MatchQueryBuilder matchQueryBuilder = QueryBuilders.matchQuery("name", "裤子");
+
+		SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+		searchSourceBuilder.query(matchQueryBuilder);
+		searchSourceBuilder.sort(SortBuilders.scoreSort().order(SortOrder.DESC));
+		SearchRequest source = goods.source(searchSourceBuilder);
+		try {
+			SearchResponse search = restHighLevelClient.search(source, RequestOptions.DEFAULT);
+			long total = search.getHits().getTotalHits().value;
+			System.out.println(total);
+			SearchHit[] hits = search.getHits().getHits();
+			for (SearchHit hit : hits) {
+				String sourceAsString = hit.getSourceAsString();
+				System.out.println(sourceAsString);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	/**
 	 * 功能描述: 相等的查询
 	 *
 	 * @param: []
@@ -546,56 +612,31 @@ public class DemoBootApplicationTests {
 			e.printStackTrace();
 		}
 	}
+
+
+
 	/**
-	 * 功能描述: 分页查询
+	 * 功能描述: 过滤和搜索的对比
 	 *
 	 * @param: []
 	 * @return: void
 	 * @auther: zhangtai
-	 * @date: 2020/1/7 15:37
+	 * @date: 2020/1/8 10:57
 	 */
 	@Test
-	public void searchPage(){
+	public void searchFilter(){
+
 		SearchRequest goods = new SearchRequest("goods");
 
-		SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-		searchSourceBuilder.size(2).from(0);
-
-		SearchRequest source = goods.source(searchSourceBuilder);
-		try {
-			SearchResponse search = restHighLevelClient.search(source, RequestOptions.DEFAULT);
-			long total = search.getHits().getTotalHits().value;
-			System.out.println(total);
-			SearchHit[] hits = search.getHits().getHits();
-			for (SearchHit hit : hits) {
-				String sourceAsString = hit.getSourceAsString();
-				System.out.println(sourceAsString);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * 功能描述: 排序
-	 *
-	 * @param: []
-	 * @return: void
-	 * @auther: zhangtai
-	 * @date: 2020/1/7 15:37
-	 */
-	@Test
-	public void searchSort(){
-		SearchRequest goods = new SearchRequest("goods");
-
-		//searchSourceBuilder.sort(SortBuilders.fieldSort("skuId").order(SortOrder.DESC));
-		//searchSourceBuilder.sort(SortBuilders.fieldSort("skuId").order(SortOrder.ASC));
-		//searchSourceBuilder.sort("skuId",SortOrder.DESC);
+		BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
 		MatchQueryBuilder matchQueryBuilder = QueryBuilders.matchQuery("name", "裤子");
+		boolQueryBuilder.filter(matchQueryBuilder);
 
 		SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-		searchSourceBuilder.query(matchQueryBuilder);
-		searchSourceBuilder.sort(SortBuilders.scoreSort().order(SortOrder.DESC));
+		searchSourceBuilder.query(boolQueryBuilder);
+		//searchSourceBuilder.query(matchQueryBuilder);
+		searchSourceBuilder.explain(true);
+		searchSourceBuilder.sort(SortBuilders.scoreSort());
 		SearchRequest source = goods.source(searchSourceBuilder);
 		try {
 			SearchResponse search = restHighLevelClient.search(source, RequestOptions.DEFAULT);
@@ -625,43 +666,6 @@ public class DemoBootApplicationTests {
 
 		SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
 		searchSourceBuilder.fetchSource(new String[]{"name","skuId"},null);
-		SearchRequest source = goods.source(searchSourceBuilder);
-		try {
-			SearchResponse search = restHighLevelClient.search(source, RequestOptions.DEFAULT);
-			long total = search.getHits().getTotalHits().value;
-			System.out.println(total);
-			SearchHit[] hits = search.getHits().getHits();
-			for (SearchHit hit : hits) {
-				String sourceAsString = hit.getSourceAsString();
-				System.out.println(sourceAsString);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * 功能描述: 过滤和搜索的对比
-	 *
-	 * @param: []
-	 * @return: void
-	 * @auther: zhangtai
-	 * @date: 2020/1/8 10:57
-	 */
-	@Test
-	public void searchFilter(){
-
-		SearchRequest goods = new SearchRequest("goods");
-
-		BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
-		MatchQueryBuilder matchQueryBuilder = QueryBuilders.matchQuery("name", "裤子");
-		boolQueryBuilder.filter(matchQueryBuilder);
-
-		SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-		searchSourceBuilder.query(boolQueryBuilder);
-		//searchSourceBuilder.query(matchQueryBuilder);
-		searchSourceBuilder.explain(true);
-		searchSourceBuilder.sort(SortBuilders.scoreSort());
 		SearchRequest source = goods.source(searchSourceBuilder);
 		try {
 			SearchResponse search = restHighLevelClient.search(source, RequestOptions.DEFAULT);
