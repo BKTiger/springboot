@@ -43,6 +43,12 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>com.leimingtech.framework</groupId>
+			<artifactId>leimingtech-elk-log</artifactId>
+			<version>1.0.4-SNAPSHOT</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
