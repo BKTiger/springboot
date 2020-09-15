@@ -21,6 +21,7 @@ public class AfterSpring implements ApplicationListener<ContextRefreshedEvent> {
         String applicationName = applicationContext.getApplicationName();
         Environment environment = applicationContext.getEnvironment();
         final Object indexController = applicationContext.getBean("indexController");
+        Object postConstructTest = applicationContext.getBean("postConstructTest");
         System.out.println("启动spring后执行");
     }
 }
