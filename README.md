@@ -14,7 +14,8 @@ com.zhangtai.demo.index.SmsListener;
 
 -----------
 
-####加入运行状态监控actuator
+#### 加入运行状态监控actuator
+
 1.  引入依赖
 ```aidl
     <dependency>
@@ -25,7 +26,7 @@ com.zhangtai.demo.index.SmsListener;
 2. 加入如下配置,暴露actuator所有接口
    ```aidl
    management.endpoints.web.exposure.include=*
-    ```
+   ```
 3. http://server:port/actuator 显示所有可用的监控接口
 
   Endpoint ID | Description 
@@ -45,3 +46,18 @@ com.zhangtai.demo.index.SmsListener;
    scheduledtasks | 显示应用中的调度任务
    threaddump|执行一个线程dump
    heapdump|返回一个GZip压缩的JVM堆dump
+
+### converter入参字段格式化
+
+1. 主要用于字段去空，日期格式化
+
+2. 代码位置
+
+   ```java
+   com.zhangtai.demo.filter.WebAppConfiguration
+   com.zhangtai.demo.filter.StringToDateConverter
+   // 测试代码位置
+   com.zhangtai.demo.index.IndexController#showIndex(java.util.Date, java.lang.String)
+   ```
+
+   
