@@ -1,5 +1,6 @@
 package com.zhangtai.demo.littleDog;
 
+import com.bktiger.MyTestInterface;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -22,6 +23,11 @@ public class AfterSpring implements ApplicationListener<ContextRefreshedEvent> {
         Environment environment = applicationContext.getEnvironment();
         final Object indexController = applicationContext.getBean("indexController");
         Object postConstructTest = applicationContext.getBean("postConstructTest");
+        Object testBean = applicationContext.getBean("testBean");
+        Object myAnnotationBean = applicationContext.getBean("myAnnotationBean");
+        MyTestInterface myTestInterface = (MyTestInterface)applicationContext.getBean("myTestInterface");
+        myTestInterface.testMo();
         System.out.println("启动spring后执行");
+
     }
 }

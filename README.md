@@ -1,6 +1,8 @@
 # springboot
 各种框架的整合案例
-基础框架
+
+### spring监听事件
+
 1. spring 框架加载完后执行的代码
 ```java
 com.zhangtai.demo.littleDog.AfterSpring
@@ -14,7 +16,7 @@ com.zhangtai.demo.index.SmsListener;
 
 -----------
 
-#### 加入运行状态监控actuator
+### 加入运行状态监控actuator
 
 1.  引入依赖
 ```aidl
@@ -61,3 +63,14 @@ com.zhangtai.demo.index.SmsListener;
    ```
 
    
+
+### BeanFactoryPostProcess扩展练习
+
+1. 代码位置
+
+   ```java
+   com.zhangtai.demo.config.beanfactorypostprocesstest.MyBeanFactoryPostProcess
+   ```
+
+   
+
