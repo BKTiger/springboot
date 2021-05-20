@@ -78,3 +78,4 @@ com.zhangtai.demo.index.SmsListener;
 
 1. 如果只有抽象类,则无法请求到路径
 2. 实现类里的RequestMapping会覆盖父类
+
